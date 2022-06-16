@@ -47,7 +47,7 @@ public class Main {
                     ));
 
                 }
-                
+
                 System.out.println(printTotalNumberOfCars(traceRecordList));
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -58,11 +58,10 @@ public class Main {
         }
         return traceRecordList;
     }
-    
-    
+
     /*
     * Print the total number of seen cars in the trace file
-    */
+     */
     public static int printTotalNumberOfCars(List<Record> traceRecordList) {
         int totalCars = 0;
         System.out.println("Total number of seen cars: ");
@@ -71,10 +70,10 @@ public class Main {
         }
         return totalCars;
     }
-    
+
     /*
     * Print the seen cars per specified dates in the trace file
-    */
+     */
     public static HashMap<LocalDate, Integer> printRecordsPerSpecifiedDate(List<Record> traceRecordList) {
 
         HashSet<LocalDate> localDateSet = new HashSet<>();
@@ -100,7 +99,7 @@ public class Main {
 
     /*
     * Compute the top three half hours with most seen cars
-    */
+     */
     public static HashMap<LocalDateTime, Integer> printTopThreeHalfHours(List<Record> traceRecordList) {
         List<Record> traceList = new ArrayList<>(traceRecordList);
         HashMap<LocalDateTime, Integer> topThreeHaldHours = new HashMap<>();
@@ -121,11 +120,11 @@ public class Main {
 
         return topThreeHaldHours;
     }
-    
+
     /*
     * Determine the list of one hour and half contiguous records in the trace file
     * Prints the least seen cars in that period
-    */
+     */
     public static HashMap<LocalDateTime, Integer> printOneHourAndHalfContiguous(List<Record> traceRecordList) {
         int step = 3;
         List<Record> contiguousList = new ArrayList<>();
@@ -174,10 +173,10 @@ public class Main {
         oneHourAndHalfContiguous.put(contiguousList.get(0).getContiguousRecordsCorrespondingDateTime().get(2), contiguousList.get(0).getContiguousRecordsSeenCars());
         return oneHourAndHalfContiguous;
     }
-    
+
     /*
     * The comparator that targets the least seen cars in one hour and half contiguous
-    */
+     */
     public static Comparator<Record> contiguousOrder = new Comparator<Record>() {
         public int compare(Record rcd2, Record rcd1) {
             return (int) (rcd2.getContiguousRecordsSeenCars() - rcd1.getContiguousRecordsSeenCars());
@@ -202,7 +201,6 @@ public class Main {
 
         // Least one hour and half contiguous seen cars
         printOneHourAndHalfContiguous(traceRecordList);
-
 
     }
 

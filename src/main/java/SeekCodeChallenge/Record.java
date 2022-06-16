@@ -12,7 +12,7 @@ import java.util.List;
 
 /*
 * This class creates an object of trace file per each line.
-*/
+ */
 public class Record implements Comparable<Record> {
 
     private LocalTime localTime;
@@ -76,7 +76,7 @@ public class Record implements Comparable<Record> {
     public List<Record> getContiguousRecords() {
         return this.contiguousRecordList;
     }
-    
+
     public List<LocalDateTime> getContiguousRecordsCorrespondingDateTime() {
         return this.contiguousRecordCorrespondingDateTime;
     }
